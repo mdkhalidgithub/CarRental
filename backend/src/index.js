@@ -14,15 +14,15 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
-
-// These two lines are needed for __dirname in ES modules
+// Setup __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve static files from a 'public' directory (or wherever your images are)
+// Serve static files from public/images
 app.use('/images', express.static(path.join(__dirname, '../public/images')));
+
+app.use(cors());
+app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/cars', carRoutes);
