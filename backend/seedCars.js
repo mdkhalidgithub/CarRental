@@ -22,7 +22,7 @@ const cars = [
     model: "X5",
     year: 2023,
     pricePerDay: 200,
-    image: "/src/assets/car/jeep.png",
+    image: "/src/assets/car/bmw.jpg",
     available: true,
     description: "Luxury SUV with premium features and powerful performance. Ideal for business and luxury travel.",
     features: ["xDrive AWD", "TwinPower Turbo", "5 Seater", "Panoramic Sunroof", "Premium Sound System"]
@@ -95,7 +95,7 @@ const cars = [
   }
 ];
 
-const seedCars = async () => {
+export const seedCars = async () => {
   try {
     // Connect to MongoDB
     await mongoose.connect(process.env.MONGODB_URI, {
@@ -126,6 +126,3 @@ const seedCars = async () => {
     console.log('Disconnected from MongoDB');
   }
 };
-
-// Run the seed function
-seedCars(); 

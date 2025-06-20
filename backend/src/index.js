@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/auth.js';
 import carRoutes from './routes/car.js';
 import bookingRoutes from './routes/booking.js';
+import { seedCars } from '../seedCars.js';
 
 dotenv.config();
 
@@ -19,6 +20,8 @@ app.use('/api/cars', carRoutes);
 app.use('/api/bookings', bookingRoutes);
 
 const PORT = process.env.PORT || 5000;
+
+// seedCars()
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,

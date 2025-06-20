@@ -81,7 +81,7 @@ function CarList() {
                   {car.image ? (
                     <img
                       className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
-                      src={car.image.startsWith('http') ? car.image : `${API_BASE_URL}${car.image}`}
+                      src={car.image}
                       alt={`${car.brand} ${car.model}`}
                       onError={(e) => {
                         e.target.style.display = 'none';
