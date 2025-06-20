@@ -34,8 +34,8 @@ const  Footer = () => {
                     CarRental
                     </h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                         Sunt perferendis itaque hic porro mollitia!
+                       Drive your dreams with ease! CarRental offers a seamless experience for booking
+                        reliable and affordable vehicles, perfect for every journey. 
                     </p>
                     <br />
                     <div className='flex items-center gap-3'>

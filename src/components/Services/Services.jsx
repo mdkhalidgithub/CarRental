@@ -12,7 +12,7 @@ const skillsData = [
             duration-300'/>
         ),
         link: "#",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        description: "We offer competitive pricing without compromising on quality or service.",
         aosDelay: "0",
 
     },
@@ -24,7 +24,7 @@ const skillsData = [
             duration-300'/>
         ),
         link: "#",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        description: "Quick booking, instant confirmation, and cars that are regularly serviced and sanitized.",
         aosDelay: "500",
 
     },
@@ -36,7 +36,7 @@ const skillsData = [
             duration-500'/>
         ),
         link: "#",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        description: "Our professional drivers are skilled, courteous, and committed to giving you a smooth, stress-free ride — every time..",
         aosDelay: "1000",
 
     },

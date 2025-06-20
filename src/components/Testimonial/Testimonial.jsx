@@ -2,21 +2,21 @@ import React from 'react'
 
 const testimonialData = [
   {
-    name:"Khalid",
+    name:" Md Khalid",
     image:"",
-    description: "Lorem ipsum dolor sit amet, usamus",
+    description: "“Booking a car was so easy and the pickup process was smooth. Loved the clean vehicle and polite service!”",
     aosDelay: "0",
   },
   {
-    name:"Guddu",
+    name:"Guddu Kumar",
     image:"",
-    description: "Lorem ipsum dolor sit amet, usamus",
+    description: "“I needed a last-minute rental for a road trip — Clarity came through with the best price and service!”",
     aosDelay: "300",
   },
   {
-    name:"Sahil",
+    name:"Sahil Ansari",
     image:"",
-    description: "Lorem ipsum dolor sit amet, usamus",
+    description: "“Great experience! The car was in top condition and the support team was very responsive throughout.”",
     aosDelay: "1000",
   },
 ]

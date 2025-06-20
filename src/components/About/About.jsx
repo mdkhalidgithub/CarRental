@@ -31,19 +31,18 @@ function About() {
             </h1>
             <p 
              data-aos='fade-up'
-            >Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Nostrum, sapiente reprehenderit. Eveniet dolores debitis 
-                inventore cumque, nisi cum ullam ipsum? Dignissimos,
-                 quidem enim repellendus quaerat dicta cupiditate numquam. 
-                 Odio, illo.
+            >At Effortless Car Rental, we believe renting a car should be as easy and enjoyable as the journey itself.
+Founded with the goal of simplifying mobility, our mission is to provide fast, reliable, and affordable car rental services to everyone
+ — whether you're planning a road trip,
+ attending a business meeting, or just need a car for the day.
                  </p>
             <p
              data-aos='fade-up'
-            >Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Nostrum, sapiente reprehenderit. Eveniet dolores debitis 
-                inventore cumque, nisi cum ullam ipsum? Dignissimos,
-                 quidem enim repellendus quaerat dicta cupiditate numquam. 
-                 Odio, illo.
+            >With a growing fleet of well-maintained vehicles and a commitment 
+            to top-notch customer support, we ensure that every ride with us is 
+            smooth, safe, and stress-free.
+From compact cars to premium SUVs, 
+we’ve got something for every need and budget.
                  </p>
 
                  <button

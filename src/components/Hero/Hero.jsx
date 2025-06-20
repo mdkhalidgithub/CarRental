@@ -1,8 +1,16 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import carPng from "../../assets/car/car1.png"
 import yellowCarPng from "../../assets/car/yellowCar.png"
 
 const Hero = ({theme}) => {
+  const navigate = useNavigate();
+  
+  const handleGetStarted = () => {
+    console.log('Get Started button clicked!');
+    window.location.href = '/login';
+  };
+
   return (
     <div className='dark:bg-black dark:text-white duration-300
     relative -z-20'>
@@ -31,20 +39,46 @@ const Hero = ({theme}) => {
             className='text-5xl
             lg:text-7xl font-semibold font-serif'>Car Rental</h1>
 
+            <p 
+            data-aos = "fade-up"
+            
+            className='
+            text-1xl font-serif'>Your Ride, Your Way – Anytime, Anywhere.</p>
+
+            <p 
+            data-aos = "fade-up"
+            
+            className='text-primary
+            text-2xl font-serif'>Looking for a hassle-free way to rent a car?.</p>
+
             <p
             data-aos = "fade-up"
             data-aos-delay = "900"
-            >Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Enim optio aliquid sed expedita tempore? Ut inventore quis, 
-                molestias est, quibusdam quos labore 
-                nam odit error neque blanditiis ducimus itaque odio!</p>
+            >We offer a seamless car rental experience with a wide range of luxury,
+             economy, and family vehicles at unbeatable prices.
+             <ul>
+              <li>✔️ Instant booking confirmation</li>
+              <li>✔️ 24/7 customer support</li>
+              <li>✔️ Flexible rental plans</li>
+              <li>✔️ Well-maintained, sanitized cars</li>
+              </ul></p>
 
+             
             <button 
-            data-aos="fade-up"
-            data-aos-duration = "1500"
-            className='btn bg-primary text-black px-6 py-2 rounded-md
-            hover:bg-primary/80 duration-300'>Get Started</button>
+              data-aos="fade-up"
+              data-aos-duration = "1500"
+              className='btn bg-primary text-black px-6 py-2 rounded-md
+              hover:bg-primary/80 duration-300 cursor-pointer' 
+              onClick={() => {
+                console.log('Get Started button clicked!');
+                window.location.href = '/login';
+              }}
+              type="button"
+              style={{ zIndex: 9999, position: 'relative' }}
+            >Get Started
+            </button>
         </div>
+        
         </div>
     </div>
     

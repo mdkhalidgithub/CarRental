@@ -6,12 +6,16 @@ import AOS from 'aos';
 import "aos/dist/aos.css";
 import About from './components/About/About';
 import Services from './components/Services/Services';
-import CarList from './components/CarList/CarList';
-import Testimonial from './components/Testimonial/Testimonial';
-import AppStoreBanner from './components/AppStoreBanner/AppStoreBanner';
-import Contact from './components/Contact/Contact';
-import Footer from './components/Footer/Footer';
-
+import CarList from './components/CarList/CarList.jsx';
+import Testimonial from './components/Testimonial/Testimonial.jsx';
+import AppStoreBanner from './components/AppStoreBanner/AppStoreBanner.jsx';
+import Contact from './components/Contact/Contact.jsx';
+import Footer from './components/Footer/Footer.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Auth/Login.jsx';
+import Signup from './components/Auth/Signup';
+import Booking from './components/Booking/Booking.jsx';
+import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
 
@@ -44,19 +48,32 @@ React.useEffect(()=>{
 AOS.refresh();
 },[]);
   return (
-  <div className=' '>
-    <Navbar theme={theme} setTheme={setTheme}/>
-    <Hero theme={theme}/>
-    <About/>
-    <Services/>
-    <CarList/>
-    <Testimonial/>
-    <div className='dark:bg-black'>
-      <AppStoreBanner/>
-    </div>
-    <Contact/>
-    <Footer/>
-    </div>
+  <AuthProvider>
+    <Router>
+      <Navbar theme={theme} setTheme={setTheme}/>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/booking" element={<Booking />} />
+        <Route path="/cars" element={<CarList />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/" element={
+          <>
+            <Hero theme={theme}/>
+            <About/>
+            <Services/>
+            <CarList/>
+            <Testimonial/>
+            <div className='dark:bg-black'>
+              <AppStoreBanner/>
+            </div>
+            <Contact/>
+          </>
+        } />
+      </Routes>
+      <Footer/>
+    </Router>
+  </AuthProvider>
   )
 }
 

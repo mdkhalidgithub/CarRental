@@ -12,10 +12,8 @@ const Contact = () => {
 
                     </h1>
                     <p className='text-gray-400'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                         Dolore soluta commodi cumque distinctio modi neque aut 
-                         itaque ipsa, labore alias, molestias perspiciatis ipsum
-                         magnam eius pariatur? Totam eligendi dignissimos ipsa.
+                        Whether you're a startup, travel agency, or corporate partner, we're excited to work with you.
+From fleet management to custom rental solutions — let’s build smarter mobility together.
                     </p>
 
                 </div>
