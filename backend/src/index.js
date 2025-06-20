@@ -2,6 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 import authRoutes from './routes/auth.js';
 import carRoutes from './routes/car.js';
@@ -14,6 +16,13 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+// These two lines are needed for __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve static files from a 'public' directory (or wherever your images are)
+app.use('/images', express.static(path.join(__dirname, '../public/images')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/cars', carRoutes);
