@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
+// Use environment variable for API URL, fallback to localhost for dev
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+
 const Booking = () => {
   const [cars, setCars] = useState([]);
   const [selectedCar, setSelectedCar] = useState('');
@@ -23,7 +26,7 @@ const Booking = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/cars');
+        const response = await fetch(`${API_BASE_URL}/api/cars`);
         const data = await response.json();
         if (response.ok) {
           setCars(data);
@@ -93,7 +96,7 @@ const Booking = () => {
       const totalPrice = daysDiff * selectedCarData.pricePerDay;
 
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/bookings', {
+      const response = await fetch(`${API_BASE_URL}/api/bookings`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

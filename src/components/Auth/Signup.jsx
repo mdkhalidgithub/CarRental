@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+
+// Use environment variable for API URL, fallback to localhost for dev
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
 const Signup = () => {
   const [form, setForm] = useState({ name: '', email: '', password: '', confirmPassword: '', username: '' });
@@ -35,7 +39,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
