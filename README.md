@@ -5,7 +5,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 ## Expanding the ESLint configuration
 
@@ -47,9 +47,9 @@ If you are developing a production application, we recommend using TypeScript wi
    ```
    npm install
    ```
-2. (Optional) Create a `.env` file in the root directory for API URL:
+2. Create a `.env` file in the root directory for API URL:
    ```
-   VITE_API_URL=http://localhost:5000/api
+   VITE_API_BASE_URL=http://localhost:5000
    ```
 3. Start the frontend:
    ```
@@ -59,15 +59,26 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ---
 
-## 3. Proxy Setup (Optional)
-To avoid CORS issues during development, add this to your `vite.config.js`:
-```js
-server: {
-  proxy: {
-    '/api': 'http://localhost:5000',
-  },
-},
-```
+## 3. Vercel Deployment Setup
+
+### Frontend Deployment (Vercel)
+1. Deploy your frontend to Vercel
+2. In Vercel dashboard, go to your project settings
+3. Add environment variable:
+   - **Name:** `VITE_API_BASE_URL`
+   - **Value:** Your deployed backend URL (e.g., `https://your-backend-domain.com`)
+
+### Backend Deployment
+Deploy your backend to a platform like:
+- **Railway**
+- **Render**
+- **Heroku**
+- **DigitalOcean App Platform**
+
+Make sure to set the following environment variables on your backend:
+- `MONGODB_URI` - Your MongoDB connection string
+- `JWT_SECRET` - Your JWT secret
+- `PORT` - Port number (usually set automatically by the platform)
 
 ---
 
@@ -93,19 +104,21 @@ server: {
 
 ```js
 // Example: Fetch cars
-fetch(`${import.meta.env.VITE_API_URL}/cars`)
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+
+fetch(`${API_BASE_URL}/api/cars`)
   .then(res => res.json())
   .then(data => console.log(data));
 
 // Example: Register
-fetch(`${import.meta.env.VITE_API_URL}/auth/register`, {
+fetch(`${API_BASE_URL}/api/auth/register`, {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ name, email, password })
 });
 
 // Example: Login
-fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
+fetch(`${API_BASE_URL}/api/auth/login`, {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ email, password })
@@ -114,6 +127,26 @@ fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
 
 ---
 
-## 6. Notes
+## 6. Troubleshooting Vercel Deployment
+
+### Cars Not Showing
+- Check if `VITE_API_BASE_URL` is set correctly in Vercel environment variables
+- Ensure your backend is deployed and accessible
+- Check browser console for CORS errors
+
+### Booking Not Working
+- Verify the backend API endpoints are working
+- Check if user authentication is working properly
+- Ensure all required environment variables are set
+
+### Common Issues
+1. **CORS Errors:** Make sure your backend allows requests from your Vercel domain
+2. **Environment Variables:** Double-check all environment variables are set in Vercel
+3. **Backend URL:** Ensure your backend URL is correct and accessible
+
+---
+
+## 7. Notes
 - Make sure MongoDB is running locally or update the `MONGODB_URI` in your `.env`.
 - Use the JWT token from login for protected routes (send as `Authorization: Bearer <token>` header).
+- For production, always use HTTPS URLs for your API endpoints.
