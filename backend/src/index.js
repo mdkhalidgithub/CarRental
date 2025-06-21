@@ -36,7 +36,7 @@ app.use('/api/bookings', bookingRoutes);
 
 const PORT = process.env.PORT || 5000;
 
-// seedCars()
+// seedCars();
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
